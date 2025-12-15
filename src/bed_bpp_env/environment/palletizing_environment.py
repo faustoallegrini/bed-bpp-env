@@ -207,7 +207,7 @@ class PalletizingEnvironment(gym.Env):
         step_returns = self._target_space.getHeights(), reward, done, False, info # False is for truncation, which is not used here
         return step_returns
 
-    def reset(self, seed = 0, options:dict={}, **kwargs) -> tuple[np.ndarray, dict]:
+    def reset(self, seed = 0, options:Optional[dict]=None, **kwargs) -> tuple[np.ndarray, dict]:
         """
         This method is responsible for
         (a) the change of the orders, e.g., from "00100001" -> "00100002",
@@ -236,7 +236,8 @@ class PalletizingEnvironment(gym.Env):
         super().reset(seed=seed)
 
         # extract order_sequence from options
-        order_sequence: Optional[list[Order]] = options.get("order_sequence", None)
+        if options is not None:
+            order_sequence: Optional[list[Order]] = options.get("order_sequence", None)
         
         self.__savePackingPlan()
         # # # # # Change the Order that is considered # # # # #

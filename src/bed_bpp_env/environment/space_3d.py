@@ -356,7 +356,6 @@ class Space3D:
         two_dim_corner_points.append((first_x, previous_y))
 
         if n_extreme_points > 1:
-            print(f"first cp: {(first_x, previous_y)}")
             last_candidate = items_for_extreme_points.pop()
             last_x = last_candidate.flb.x + last_candidate.array_representation.shape[1]
             last_y = last_candidate.flb.y + last_candidate.array_representation.shape[0]

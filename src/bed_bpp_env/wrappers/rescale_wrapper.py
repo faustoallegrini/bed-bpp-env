@@ -47,7 +47,7 @@ class RescaleWrapper(gym.Wrapper):
 
         self.env.setSizeMultiplicator(size_divisor)
 
-    def reset(self, seed = 0, options:dict={}, **kwargs) -> tuple:
+    def reset(self, seed = 0, options:Optional[dict]=None, **kwargs) -> tuple:
         # def reset(self, data_for_episodes={}) -> tuple:
         """
         This method rescales the observation and adapts the information dictionary of the base environment.

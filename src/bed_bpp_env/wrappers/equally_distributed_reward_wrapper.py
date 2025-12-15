@@ -43,7 +43,7 @@ class EquallyDistributedRewardWrapper(gym.Wrapper):
         """Calculate the reward and return it."""
         return 1.0 / (self.__N_ITEMS_IN_ORDER)
 
-    def reset(self, seed = 0, options:dict={}, **kwargs) -> tuple:
+    def reset(self, seed = 0, options:Optional[dict]=None, **kwargs) -> tuple:
         # def reset(self, data_for_episodes={}) -> tuple:
         """
         If `VISUALIZE_REWARD_DISTRIBUTION` is set to `True`, a plot is displayed that shows the original (=old) reward, the new values of the reward and the accumulative value of the new reward. Note that the `plt.show()` methods blocks the simulation!
